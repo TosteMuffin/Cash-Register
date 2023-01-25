@@ -1,0 +1,41 @@
+/*
+Author        : Anthony Wright
+Class         : CISP 301 Spring Sem
+Program       : Cash Register
+Description   : This program is designed to simulate a cash register
+                at your basic corner store.*/
+
+#include <iostream>
+using namespace std;
+void input(float pounds, float total);
+void output(float total);
+
+
+int main()
+{
+    float total{}, pounds{};
+    input(pounds,total);
+    output(total);
+    
+}
+
+// This module is intended to read the number of pounds the cahsier
+// inputs into the register
+void input(float pounds,float total)
+{
+    cout << "Please input the number of pounds the customer is purchasing: ";
+    cin >> pounds;
+    if (pounds <= 5)
+    {
+        total = pounds * 10;
+    }
+
+}
+
+// This is the output module, its whole purpose is to display
+// the total amount of money spent on the current trip
+
+void output(float total)
+{
+    cout << "Your total is $" << total << endl;
+}
