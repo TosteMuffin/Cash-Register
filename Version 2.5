@@ -1,0 +1,70 @@
+// Program    : Candy Sale (v.1)
+// Author     : Prof. Krofchok - edited by Anthony Wright
+// Date       : Spring 2023
+// Description: This program simply reads a number from the user and redisplays
+//              that number on the screen. Modules are used to break things down
+//              into small pieces.
+
+#include <iostream>
+#include <iomanip>
+
+void input_data(int& pounds);
+void perform_calculations(int pounds, double& total);
+void output_results(int pounds, double total);
+
+int main()
+{
+    int pounds;  // pounds of candy purchased
+    double total;
+
+    input_data(pounds);
+    perform_calculations(pounds, total);
+    output_results(pounds, total);
+}
+
+
+//
+// An input module that gets the pounds of candy purchased from the user.
+//
+void input_data(int& pounds)
+{
+    std::cout << "Enter pounds of truffles purchased: ";
+    std::cin >> pounds;
+}
+
+
+//
+// This does the math for us.
+//
+void perform_calculations(int pounds, double& total)
+{
+    if (pounds <= 5) {
+        total = pounds * 20;
+    }
+    else {
+        total = 100.00;
+        pounds = pounds - 5;
+        total = total + (pounds * 12.00);
+    }
+}
+
+
+
+
+
+
+//
+// An output module that displays the pounds of truffles the user wants
+// to purchase.
+//
+void output_results(int pounds, double total)
+{
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "I see that you want to purchase "
+        << pounds
+        << " pound(s) of truffles! "
+        << std::endl
+        << "The total is $"
+        << total
+        << std::endl;
+}
